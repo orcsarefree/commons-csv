@@ -42,6 +42,9 @@ public class CSVRecordTest {
     private CSVRecord record, recordWithHeader;
     private Map<String, Integer> header;
 
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(10); // 10 seconds max per method tested
+
     @Before
     public void setUp() throws Exception {
         values = new String[] { "A", "B", "C" };
