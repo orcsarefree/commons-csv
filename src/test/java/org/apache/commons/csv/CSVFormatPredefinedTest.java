@@ -30,6 +30,9 @@ public class CSVFormatPredefinedTest {
         Assert.assertEquals(format, CSVFormat.valueOf(enumName));
     }
 
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(10); // 10 seconds max per method tested
+    
     @Test
     public void testDefault() {
         test(CSVFormat.DEFAULT, "Default");
