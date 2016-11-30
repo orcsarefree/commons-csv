@@ -48,6 +48,8 @@ import org.apache.commons.io.input.BOMInputStream;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
 
 /**
  * CSVParserTest
@@ -110,6 +112,9 @@ public class CSVParserTest {
         parser.close();
     }
 
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(10); // 10 seconds max per method tested
+  
     @Test
     public void testBackslashEscaping2() throws IOException {
 
