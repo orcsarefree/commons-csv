@@ -34,6 +34,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+
 public class CSVRecordTest {
 
     private enum EnumFixture { UNKNOWN_COLUMN }
@@ -53,6 +56,9 @@ public class CSVRecordTest {
         recordWithHeader = new CSVRecord(values, header, null, 0, -1);
     }
 
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(10); // 10 seconds max per method tested
+    
     @Test
     public void testGetInt() {
         assertEquals(values[0], record.get(0));
