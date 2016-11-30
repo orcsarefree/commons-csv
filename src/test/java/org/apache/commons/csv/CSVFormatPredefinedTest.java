@@ -20,6 +20,10 @@ package org.apache.commons.csv;
 import org.junit.Assert;
 import org.junit.Test;
 
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+
+
 /**
  * Tests {@link CSVFormat.Predefined}.
  */
