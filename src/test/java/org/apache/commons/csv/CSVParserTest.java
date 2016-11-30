@@ -49,6 +49,8 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import org.junit.Rule;
+import org.junit.rules.Timeout;
 /**
  * CSVParserTest
  *
@@ -70,6 +72,9 @@ public class CSVParserTest {
 
     private static final String[][] RESULT = { { "a", "b", "c", "d" }, { "a", "b", "1 2" }, { "foo baar", "b", "" },
             { "foo\n,,\n\",,\n\"", "d", "e" } };
+    
+    @Rule
+    public Timeout globalTimeout = Timeout.seconds(10); // 10 seconds max per method tested
 
     @Test
     public void testBackslashEscaping() throws IOException {
